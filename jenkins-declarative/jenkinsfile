@@ -1,11 +1,19 @@
 
 pipeline {
-    agent any
+    agent { label 'worker-node'}
     
     stages {
         stage('Build') {
             steps {
                 // Run build commands
+                sh 'echo "Building project..."'
+            }
+        }
+
+        stage('Create new file') {
+            steps {
+                // Run build commands
+                sh 'touch new.txt'
                 sh 'echo "Building project..."'
             }
         }
